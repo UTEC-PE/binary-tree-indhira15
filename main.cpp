@@ -15,6 +15,8 @@ public:
 
 class arbol{
 public:
+    // Falta el destructor
+    // Falta el remove
     stack<node*> nodos;
     node* raiz;
     arbol():raiz(nullptr){}
@@ -30,7 +32,7 @@ public:
     }
 
 
-    void insert(int data, node* raiz2){
+    void insert(int data, node* raiz2){ // No deberías tener que pasarle el root
         if(!raiz){
             raiz = new node {data, nullptr, nullptr};
         }
@@ -76,7 +78,7 @@ public:
 
 
 
-class Iterator{
+class Iterator{ // El iterator no está completo
 public:
     stack <node*> pile;
     node* current;
@@ -89,7 +91,7 @@ public:
         this -> current = nodo;
     }
 
-    Iterator operator++(){
+    Iterator operator++(){ // No estás retornando nada
         pile.pop();
         current = pile.top();
     }
@@ -117,7 +119,7 @@ public:
 
 
 int main() {
-    arbol1.insert(10, arbol1.get_root());
+    arbol1.insert(10, arbol1.get_root()); 
     arbol1.insert(15, arbol1.get_root());
     arbol1.insert(9, arbol1.get_root() );
     arbol1.insert(15, arbol1.get_root());
